@@ -19,6 +19,7 @@ class Game {
             8: null,
             9: null
         };
+        this.turnCount = 0;
     }
 
     getCurrentPlayer() {
@@ -89,33 +90,22 @@ class Game {
     }
 
     callDraw() {
-        this.draw = true;
+        if (this.turnCount > 8) {
+            this.draw = true;
+            this.reset();
+            //this.turnCount = 0;
+        }
     }
 
     reset() {
-        this.player1Turn = true;
-        this.player2Turn = false;
+        // this.player1Turn = true;
+        // this.player2Turn = false;
+
+        this.draw = false;
+        this.turnCount = 0;
 
         for (var i = 1; i < 10; i++) {
             this.gameBoard[i] = null;
         }
     }
 }
-
-
-// A Game should include:
-// Two Player instances
-// A way to keep track of which player’s turn it currently is
-
-// A way to detect when a game is a draw (no one has won)
-// A way to reset the Game’s board to begin a new game
-
-
-// A way to keep track of the data for the game board
-// A way to check the Game’s board data for win conditions
-
-
-
-
-// data section in table
-// in dex positions
