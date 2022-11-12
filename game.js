@@ -19,7 +19,7 @@ class Game {
             8: null,
             9: null
         };
-        this.turnCount = 0;
+        this.turnCount = 1;
     }
 
     getCurrentPlayer() {
@@ -85,22 +85,33 @@ class Game {
         return winner;
     }
 
+    resetTurnCount() {
+        this.turnCount = 1;
+    }
+
     calculateTotalWins() {
         this.totalWins = player1.wins + player2.wins;
     }
 
     checkDraw() {
-        if (this.turnCount > 8) {
+        if (this.turnCount === 10) {
             this.draw = true;
-            this.reset();
+            //this.reset();
+
+
             //this.turnCount = 0;
         }
 
+        return this.draw;
+
         // for (var i = 1; i < 10; i++) {
+
         //     if (this.gameBoard[i] === null) {
+        //         //this.draw = false;
         //         return false;
         //     }
         //     this.draw = true;
+        //     this.reset();
         //     return true;
         // }
     }
@@ -110,7 +121,7 @@ class Game {
         // this.player2Turn = false;
 
         this.draw = false;
-        this.turnCount = 0;
+        this.resetTurnCount();
 
         for (var i = 1; i < 10; i++) {
             this.gameBoard[i] = null;

@@ -43,7 +43,7 @@ function markBox() {
     var winner = currentGame.checkForWin()
 
     if (winner === currentGame.player1) {
-
+        currentGame.resetTurnCount();
         disableBoard();
         currentGame.player1.increaseWins();
         currentGame.reset();
@@ -56,7 +56,7 @@ function markBox() {
             return [enableBoard(), displayTurn(currentPlayer)];
         }, 2000)
     } else if (winner === currentGame.player2) {
-
+        currentGame.resetTurnCount();
         disableBoard();
         currentGame.player2.increaseWins();
         currentGame.reset();
@@ -73,9 +73,28 @@ function markBox() {
     console.log(currentGame.checkForWin());
     console.log(currentGame);
 
-    // if (currentGame.checkDraw()) {
-    //     currentTurnDisplay.innerText = `It's a draw!`;
-    // }
+
+
+    if (currentGame.checkDraw()) {
+
+        currentTurnDisplay.innerText = `It's a draw!`;
+
+        setTimeout(() => {
+            currentGame.reset();
+
+
+            clearDisplayBoard();
+
+            return displayTurn(currentPlayer);
+        }, 2000)
+
+
+
+
+
+    }
+
+
 
 
     updateWinCountDisplay();
