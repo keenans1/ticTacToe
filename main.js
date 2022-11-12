@@ -10,6 +10,7 @@ var currentGame = new Game(player1, player2);
 
 var gameBoard = currentGame.gameBoard;
 var currentBox = null;
+var gameCount = 1;
 
 currentTurnDisplay.innerText = `It's ${player1.token}'s Turn`;
 player1WinCountDisplay.innerText = player1.wins + ' Wins';
@@ -23,10 +24,18 @@ function markBox() {
 
     var currentId = event.target.id;
     var currentPlayer = currentGame.getCurrentPlayer();
+    // var currentPlayer = null;
+
+    // if (gameCount % 2 === 0) {
+    //     currentPlayer = currentGame.player2;
+    // } else {
+    //     currentPlayer = currentGame.player1;
+    // }
 
     if (currentGame.gameBoard[currentId] === null) {
         displayUserToken(currentId, currentPlayer);
         currentGame.gameBoard[currentId] = currentPlayer.token;
+        displayTurn(currentPlayer);
         currentGame.play();
         currentGame.turnCount++;
     }
@@ -34,23 +43,41 @@ function markBox() {
     var winner = currentGame.checkForWin()
 
     if (winner === currentGame.player1) {
+
+        disableBoard();
         currentGame.player1.increaseWins();
         currentGame.reset();
-        clearDisplayBoard();
-        //updateWinCountDisplay();
-        //updatePageText(currentPlayer);
+        displayWinner(winner);
+        setTimeout(() => {
+
+            clearDisplayBoard();
+            gameCount++;
+            //return enableBoard();
+            return [enableBoard(), displayTurn(currentPlayer)];
+        }, 2000)
     } else if (winner === currentGame.player2) {
+
+        disableBoard();
         currentGame.player2.increaseWins();
         currentGame.reset();
-        clearDisplayBoard();
-        //updateWinCountDisplay();
-        //updatePageText(currentPlayer);
+        displayWinner(winner);
+        setTimeout(() => {
+
+            clearDisplayBoard();
+            gameCount++;
+            //return enableBoard();
+            return [enableBoard(), displayTurn(currentPlayer)];
+        }, 2000)
     }
 
     console.log(currentGame.checkForWin());
     console.log(currentGame);
 
-    currentGame.callDraw();
+    // if (currentGame.checkDraw()) {
+    //     currentTurnDisplay.innerText = `It's a draw!`;
+    // }
+
+
     updateWinCountDisplay();
 }
 
@@ -71,4 +98,28 @@ function clearDisplayBoard() {
     for (var i = 0; i < boxes.length; i++) {
         boxes[i].innerText = '';
     }
+}
+
+function disableBoard() {
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].disabled = true;
+    }
+}
+
+function enableBoard() {
+    for (var i = 0; i < boxes.length; i++) {
+        boxes[i].disabled = false;
+    }
+}
+
+function displayTurn(currentPlayer) {
+    if (currentPlayer === currentGame.player1) {
+        currentTurnDisplay.innerText = `It's ${currentGame.player2.token}'s Turn`;
+    } else {
+        currentTurnDisplay.innerText = `It's ${currentGame.player1.token}'s Turn`;
+    }
+}
+
+function displayWinner(winner) {
+    currentTurnDisplay.innerText = `Player ${winner.token} has won!`;
 }

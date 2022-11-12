@@ -89,12 +89,20 @@ class Game {
         this.totalWins = player1.wins + player2.wins;
     }
 
-    callDraw() {
+    checkDraw() {
         if (this.turnCount > 8) {
             this.draw = true;
             this.reset();
             //this.turnCount = 0;
         }
+
+        // for (var i = 1; i < 10; i++) {
+        //     if (this.gameBoard[i] === null) {
+        //         return false;
+        //     }
+        //     this.draw = true;
+        //     return true;
+        // }
     }
 
     reset() {
