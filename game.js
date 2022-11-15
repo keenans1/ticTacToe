@@ -4,7 +4,6 @@ class Game {
         this.player2 = player2;
         this.player1Wins = player1.wins;
         this.player2Wins = player2.wins;
-        this.totalWins = 0;
         this.player1Turn = true;
         this.player2Turn = false;
         this.draw = false;
@@ -20,7 +19,6 @@ class Game {
             9: null
         };
         this.turnCount = 1;
-        this.gameCount = 1;
         this.startingPlayer = this.player1;
     }
 
@@ -70,10 +68,6 @@ class Game {
         this.turnCount = 1;
     }
 
-    calculateTotalWins() {
-        this.totalWins = player1.wins + player2.wins;
-    }
-
     checkDraw() {
         if (this.turnCount === 10) {
             this.draw = true;
@@ -84,27 +78,20 @@ class Game {
     reset() {
         this.draw = false;
         this.resetTurnCount();
-
         for (var i = 1; i < 10; i++) {
             this.gameBoard[i] = null;
         }
     }
 
     swapStartingPlayer() {
-
-
         if (this.startingPlayer === this.player1) {
             this.startingPlayer = this.player2;
             this.player1Turn = false;
             this.player2Turn = true;
-
-
         } else {
             this.startingPlayer = this.player1;
             this.player1Turn = true;
             this.player2Turn = false;
-
         }
-
     }
 }
