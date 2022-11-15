@@ -33,30 +33,8 @@ function markBox() {
 
     if (winner === currentGame.player1) {
         runWinner(currentGame.player1);
-        // swapStartingPlayer();
-        // currentGame.gameCount++;
-        // currentGame.resetTurnCount();
-        // disableBoard();
-        // currentGame.player1.increaseWins();
-        // currentGame.reset();
-        // displayWinner(winner);
-        // setTimeout(() => {
-        //     clearDisplayBoard();
-        //     return [enableBoard(), displayTurn(currentPlayer)];
-        // }, 2000)
     } else if (winner === currentGame.player2) {
         runWinner(currentGame.player2);
-        // swapStartingPlayer();
-        // currentGame.gameCount++;
-        // currentGame.resetTurnCount();
-        // disableBoard();
-        // currentGame.player2.increaseWins();
-        // currentGame.reset();
-        // displayWinner(winner);
-        // setTimeout(() => {
-        //     clearDisplayBoard();
-        //     return [enableBoard(), displayTurn(currentPlayer)];
-        // }, 2000)
     } else if (currentGame.checkDraw()) {
         currentGame.gameCount++;
         currentTurnDisplay.innerText = `It's a draw!`;

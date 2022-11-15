@@ -65,44 +65,6 @@ class Game {
         return winner;
     }
 
-    // checkForWin() {
-    //     var winner = null;
-    //     if (this.gameBoard[1] === this.player1.token && this.gameBoard[2] === this.player1.token && this.gameBoard[3] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[4] === this.player1.token && this.gameBoard[5] === this.player1.token && this.gameBoard[6] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[7] === this.player1.token && this.gameBoard[8] === this.player1.token && this.gameBoard[9] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[1] === this.player1.token && this.gameBoard[4] === this.player1.token && this.gameBoard[7] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[2] === this.player1.token && this.gameBoard[5] === this.player1.token && this.gameBoard[8] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[3] === this.player1.token && this.gameBoard[6] === this.player1.token && this.gameBoard[9] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[1] === this.player1.token && this.gameBoard[5] === this.player1.token && this.gameBoard[9] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[3] === this.player1.token && this.gameBoard[5] === this.player1.token && this.gameBoard[7] === this.player1.token) {
-    //         winner = this.player1;
-    //     } else if (this.gameBoard[1] === this.player2.token && this.gameBoard[2] === this.player2.token && this.gameBoard[3] === this.player2.token) {
-    //         winner = this.player2;
-    //     } else if (this.gameBoard[4] === this.player2.token && this.gameBoard[5] === this.player2.token && this.gameBoard[6] === this.player2.token) {
-    //         winner = this.player2;
-    //     } else if (this.gameBoard[7] === this.player2.token && this.gameBoard[8] === this.player2.token && this.gameBoard[9] === this.player2.token) {
-    //         winner = this.player2;
-    //     } else if (this.gameBoard[1] === this.player2.token && this.gameBoard[4] === this.player2.token && this.gameBoard[7] === this.player2.token) {
-    //         winner = this.player2;
-    //     } else if (this.gameBoard[2] === this.player2.token && this.gameBoard[5] === this.player2.token && this.gameBoard[8] === this.player2.token) {
-    //         winner = this.player2;
-    //     } else if (this.gameBoard[3] === this.player2.token && this.gameBoard[6] === this.player2.token && this.gameBoard[9] === this.player2.token) {
-    //         winner = this.player2;
-    //     } else if (this.gameBoard[1] === this.player2.token && this.gameBoard[5] === this.player2.token && this.gameBoard[9] === this.player2.token) {
-    //         winner = this.player2;
-    //     } else if (this.gameBoard[3] === this.player2.token && this.gameBoard[5] === this.player2.token && this.gameBoard[7] === this.player2.token) {
-    //         winner = this.player2;
-    //     }
-    //     return winner;
-    // }
-
     resetTurnCount() {
         this.turnCount = 1;
     }
