@@ -39,17 +39,7 @@ function markBox() {
     var winner = currentGame.checkForWin()
 
     if (winner === currentGame.player1) {
-        if (startingPlayer === currentGame.player1) {
-            startingPlayer = currentGame.player2;
-            currentGame.player1Turn = false;
-            currentGame.player2Turn = true;
-            currentPlayer = startingPlayer;
-        } else {
-            startingPlayer = currentGame.player1;
-            currentGame.player1Turn = true;
-            currentGame.player2Turn = false;
-            currentPlayer = startingPlayer;
-        }
+        swapStartingPlayer();
         currentGame.gameCount++;
         currentGame.resetTurnCount();
         disableBoard();
@@ -61,17 +51,7 @@ function markBox() {
             return [enableBoard(), displayTurn(currentPlayer)];
         }, 2000)
     } else if (winner === currentGame.player2) {
-        if (startingPlayer === currentGame.player1) {
-            startingPlayer = currentGame.player2;
-            currentGame.player1Turn = false;
-            currentGame.player2Turn = true;
-            currentPlayer = startingPlayer;
-        } else {
-            startingPlayer = currentGame.player1;
-            currentGame.player1Turn = true;
-            currentGame.player2Turn = false;
-            currentPlayer = startingPlayer;
-        }
+        swapStartingPlayer();
         currentGame.gameCount++;
         currentGame.resetTurnCount();
         disableBoard();
@@ -85,17 +65,7 @@ function markBox() {
     } else if (currentGame.checkDraw()) {
         currentGame.gameCount++;
         currentTurnDisplay.innerText = `It's a draw!`;
-        if (startingPlayer === currentGame.player1) {
-            startingPlayer = currentGame.player2;
-            currentGame.player1Turn = false;
-            currentGame.player2Turn = true;
-            currentPlayer = startingPlayer;
-        } else {
-            startingPlayer = currentGame.player1;
-            currentGame.player1Turn = true;
-            currentGame.player2Turn = false;
-            currentPlayer = startingPlayer;
-        }
+        swapStartingPlayer();
         setTimeout(() => {
             currentGame.reset();
             clearDisplayBoard();
@@ -149,13 +119,19 @@ function displayWinner(winner) {
     currentTurnDisplay.innerText = `Player ${winner.token} has won!`;
 }
 
-
-
-
-
-
-
-
+function swapStartingPlayer() {
+    if (startingPlayer === currentGame.player1) {
+        startingPlayer = currentGame.player2;
+        currentGame.player1Turn = false;
+        currentGame.player2Turn = true;
+        currentPlayer = startingPlayer;
+    } else {
+        startingPlayer = currentGame.player1;
+        currentGame.player1Turn = true;
+        currentGame.player2Turn = false;
+        currentPlayer = startingPlayer;
+    }
+}
 
 // var grid = document.querySelector('.grid-container');
 // var boxes = document.querySelectorAll('.grid-item');

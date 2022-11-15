@@ -32,7 +32,6 @@ class Game {
     }
 
     play() {
-
         if (this.player1Turn) {
             this.player1Turn = false;
             this.player2Turn = true;
@@ -43,9 +42,7 @@ class Game {
     }
 
     checkForWin() {
-
         var winner = null;
-
         if (this.gameBoard[1] === this.player1.token && this.gameBoard[2] === this.player1.token && this.gameBoard[3] === this.player1.token) {
             winner = this.player1;
         } else if (this.gameBoard[4] === this.player1.token && this.gameBoard[5] === this.player1.token && this.gameBoard[6] === this.player1.token) {
@@ -79,11 +76,6 @@ class Game {
         } else if (this.gameBoard[3] === this.player2.token && this.gameBoard[5] === this.player2.token && this.gameBoard[7] === this.player2.token) {
             winner = this.player2;
         }
-
-        // if (winner != null) {
-        //     this.reset();
-        // }
-
         return winner;
     }
 
@@ -98,24 +90,8 @@ class Game {
     checkDraw() {
         if (this.turnCount === 10) {
             this.draw = true;
-            //this.reset();
-
-
-            //this.turnCount = 0;
         }
-
         return this.draw;
-
-        // for (var i = 1; i < 10; i++) {
-
-        //     if (this.gameBoard[i] === null) {
-        //         //this.draw = false;
-        //         return false;
-        //     }
-        //     this.draw = true;
-        //     this.reset();
-        //     return true;
-        // }
     }
 
     reset() {
