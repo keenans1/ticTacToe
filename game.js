@@ -21,6 +21,7 @@ class Game {
         };
         this.turnCount = 1;
         this.gameCount = 1;
+        this.startingPlayer = this.player1;
     }
 
     getCurrentPlayer() {
@@ -87,5 +88,23 @@ class Game {
         for (var i = 1; i < 10; i++) {
             this.gameBoard[i] = null;
         }
+    }
+
+    swapStartingPlayer() {
+
+
+        if (this.startingPlayer === this.player1) {
+            this.startingPlayer = this.player2;
+            this.player1Turn = false;
+            this.player2Turn = true;
+
+
+        } else {
+            this.startingPlayer = this.player1;
+            this.player1Turn = true;
+            this.player2Turn = false;
+
+        }
+
     }
 }

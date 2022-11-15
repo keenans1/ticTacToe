@@ -9,8 +9,8 @@ var player2 = new Player(2, 'O', 0);
 var currentGame = new Game(player1, player2);
 var gameBoard = currentGame.gameBoard;
 var currentBox = null;
-var startingPlayer = currentGame.player1;
-var currentPlayer = startingPlayer;
+// var startingPlayer = currentGame.player1;
+var currentPlayer = currentGame.startingPlayer;
 
 currentTurnDisplay.innerText = `It's ${player1.token}'s Turn`;
 player1WinCountDisplay.innerText = player1.wins + ' Wins';
@@ -38,7 +38,8 @@ function markBox() {
     } else if (currentGame.checkDraw()) {
         currentGame.gameCount++;
         currentTurnDisplay.innerText = `It's a draw!`;
-        swapStartingPlayer();
+        currentGame.swapStartingPlayer();
+        currentPlayer = currentGame.getCurrentPlayer();
         setTimeout(() => {
             currentGame.reset();
             clearDisplayBoard();
@@ -92,19 +93,7 @@ function displayWinner(winner) {
     currentTurnDisplay.innerText = `Player ${winner.token} has won!`;
 }
 
-function swapStartingPlayer() {
-    if (startingPlayer === currentGame.player1) {
-        startingPlayer = currentGame.player2;
-        currentGame.player1Turn = false;
-        currentGame.player2Turn = true;
-        currentPlayer = startingPlayer;
-    } else {
-        startingPlayer = currentGame.player1;
-        currentGame.player1Turn = true;
-        currentGame.player2Turn = false;
-        currentPlayer = startingPlayer;
-    }
-}
+
 
 function alternateCurrentPlayer() {
     if (currentPlayer === currentGame.player1) {
@@ -115,7 +104,8 @@ function alternateCurrentPlayer() {
 }
 
 function runWinner(winningPlayer) {
-    swapStartingPlayer();
+    currentGame.swapStartingPlayer();
+    currentPlayer = currentGame.getCurrentPlayer();
     currentGame.gameCount++;
     currentGame.resetTurnCount();
     disableBoard();
