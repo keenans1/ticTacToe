@@ -20,6 +20,7 @@ class Game {
             9: null
         };
         this.turnCount = 1;
+        this.gameCount = 1;
     }
 
     getCurrentPlayer() {
@@ -31,6 +32,7 @@ class Game {
     }
 
     play() {
+
         if (this.player1Turn) {
             this.player1Turn = false;
             this.player2Turn = true;
@@ -117,9 +119,6 @@ class Game {
     }
 
     reset() {
-        // this.player1Turn = true;
-        // this.player2Turn = false;
-
         this.draw = false;
         this.resetTurnCount();
 
