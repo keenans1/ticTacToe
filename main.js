@@ -26,11 +26,7 @@ function markBox() {
     if (currentGame.gameBoard[currentId] === null) {
         displayUserToken(currentId, currentPlayer);
         currentGame.gameBoard[currentId] = currentPlayer.token;
-        if (currentPlayer === currentGame.player1) {
-            currentPlayer = currentGame.player2;
-        } else {
-            currentPlayer = currentGame.player1;
-        }
+        alternateCurrentPlayer();
         currentGame.play();
         displayTurn(currentPlayer);
         currentGame.turnCount++;
@@ -130,6 +126,14 @@ function swapStartingPlayer() {
         currentGame.player1Turn = true;
         currentGame.player2Turn = false;
         currentPlayer = startingPlayer;
+    }
+}
+
+function alternateCurrentPlayer() {
+    if (currentPlayer === currentGame.player1) {
+        currentPlayer = currentGame.player2;
+    } else {
+        currentPlayer = currentGame.player1;
     }
 }
 
