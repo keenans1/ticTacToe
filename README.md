@@ -17,10 +17,10 @@ We were given approximately a week to work on this project. I would estimate tha
 I am currently in Mod 1 week 6.
 
 Learning Goals:
-Learning goals for this project were to create a data model and play the game solely based on the data model.
+Learning goals for this project were to create a data model and play the game solely based on the data model. Then, simply reflect the data model in our DOM.
 
 
-
+Tech Used:
 I worked with JavaScript, HTML, CSS, and Git/GitHub workflow.
 
 Wins + Challenges:
@@ -32,4 +32,4 @@ Not getting the solutions from others, only rubber ducking
 Challenges
 Fixing all of the bugs to get the game working properly
 Creating the data model to be functional
-Not adding extra features or better styling
+Not adding extra features or better styling, shouldve had better time management for this
