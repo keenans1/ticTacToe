@@ -64,10 +64,6 @@ class Game {
         return winner;
     }
 
-    // resetTurnCount() {
-    //     this.turnCount = 1;
-    // }
-
     checkDraw() {
         if (this.turnCount === 10) {
             this.draw = true;
@@ -78,7 +74,6 @@ class Game {
     reset() {
         this.draw = false;
         this.turnCount = 1;
-        //this.resetTurnCount();
         for (var i = 1; i < 10; i++) {
             this.gameBoard[i] = null;
         }

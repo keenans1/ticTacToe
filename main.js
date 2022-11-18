@@ -99,7 +99,6 @@ function alternateCurrentPlayer() {
 function runWinner(winningPlayer) {
     currentGame.swapStartingPlayer();
     currentPlayer = currentGame.getCurrentPlayer();
-    //currentGame.resetTurnCount();
     disableBoard();
     winningPlayer.increaseWins();
     currentGame.reset();
@@ -109,5 +108,3 @@ function runWinner(winningPlayer) {
         return [enableBoard(), displayTurn(currentPlayer)];
     }, 2000)
 }
-
-//refactor branch
